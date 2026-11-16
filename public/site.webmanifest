@@ -1,0 +1,14 @@
+{
+  "name": "Fixation Reader: Bionic Reading & Study",
+  "short_name": "Fixation Reader",
+  "description": "Free bionic reading app for PDFs and books, with read-aloud, a speed-reading pacer and AI quizzes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#E9EEEC",
+  "theme_color": "#0B7A69",
+  "categories": ["education", "books", "productivity"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

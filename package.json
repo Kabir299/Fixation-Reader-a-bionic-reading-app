@@ -1,0 +1,16 @@
+{
+  "name": "fixation-reader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bold-start (bionic-style) reader with read-aloud, pacing, highlights, and Claude-powered discussion and quizzes.",
+  "scripts": {
+    "dev": "node dev-server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
