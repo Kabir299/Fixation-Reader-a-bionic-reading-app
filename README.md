@@ -11,6 +11,7 @@ Live: https://fixation-reader.vercel.app
 | `public/index.html` | The whole website (one page). Books are stored in each visitor's own browser. |
 | `api/ai.js` | Serverless function for Discuss and Quiz. Uses Gemini when `GEMINI_API_KEY` is set, otherwise Claude when `ANTHROPIC_API_KEY` is set. |
 | `api/tts.js` | Serverless function for the AI voices (Gemini text-to-speech), about a paragraph per request. |
+| `api/book.js` | Relays free public-domain EPUBs from Project Gutenberg for the Find books window (Gutenberg blocks direct browser downloads). Search itself goes straight to Open Library. |
 | `vercel.json` | Tells Vercel to serve `public/` and run the functions. |
 | `dev-server.mjs` | Local preview: set a key in your shell, `npm run dev`, open http://localhost:3000 |
 
@@ -29,7 +30,7 @@ npx vercel --prod
 | `GEMINI_TTS_MODEL` | `gemini-3.8-flash-lite-tts` | Model for the AI voices. |
 | `TTS_DISABLED` | unset | Set to `1` to hide AI voices (for example, to save quota). |
 | `ANTHROPIC_API_KEY` | none | Use Claude instead of Gemini for Discuss and Quiz (only when no Gemini key is set). |
-| `RATE_LIMIT_PER_10_MIN` / `TTS_RATE_LIMIT_PER_10_MIN` | 40 / 150 | Per-visitor request limits. |
+| `RATE_LIMIT_PER_10_MIN` / `TTS_RATE_LIMIT_PER_10_MIN` / `BOOK_RATE_LIMIT_PER_10_MIN` | 40 / 150 / 30 | Per-visitor request limits. |
 
 After changing a variable, run `npx vercel --prod` so the change takes effect.
 

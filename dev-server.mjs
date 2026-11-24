@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import handler from "./api/ai.js";
 import ttsHandler from "./api/tts.js";
+import bookHandler from "./api/book.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "public");
 const PORT = Number(process.env.PORT || 3000);
@@ -14,7 +15,7 @@ const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", "
 http
   .createServer(async (req, res) => {
     const url = new URL(req.url, `http://${req.headers.host}`);
-    const fn = url.pathname === "/api/ai" ? handler : url.pathname === "/api/tts" ? ttsHandler : null;
+    const fn = url.pathname === "/api/ai" ? handler : url.pathname === "/api/tts" ? ttsHandler : url.pathname === "/api/book" ? bookHandler : null;
     if (fn) {
       let raw = "";
       for await (const chunk of req) raw += chunk;
